@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h1 class="text-primary">Tareas</h1>
+
+    <table class="table table-striped table-hover table-primary">
+        <thead>
+            <tr>
+      
+                <th scope="col">Titulo</th>
+            
+                <th scope="col">Tarea</th>
+            
+                <th scope="col">Fecha limite</th>
+            
+              </tr>
+        </thead>
+        
+        <tbody *ngFor="let t of lista_tareas">
+            <tr>
+      
+                <td>{{t.titulo}}</td>
+            
+                <td>{{t.tarea}}</td>
+            
+                <td>{{t.limite}}</td>
+            
+              </tr>
+        </tbody>
+        
+    </table>
+</div>
