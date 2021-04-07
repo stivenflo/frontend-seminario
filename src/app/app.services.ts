@@ -26,4 +26,12 @@ export class AppService {
         return this.httpClient.delete(this.endpoint+"/delete_vehiculo", {params:load,
         responseType:'json'})
     }
+
+    login(payload):Observable<any>{
+        return this.httpClient.post(this.endpoint + "/login", payload, {responseType: 'json'});
+      }
+    
+    set_session(token){
+        localStorage.setItem("tarea", JSON.stringify(token));
+      }
 }

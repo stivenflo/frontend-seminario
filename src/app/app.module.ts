@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app.router';
 import { AppService } from './app.services';
 import { TareasComponent } from './views/tareas/tareas.component';
 import { FormsModule } from '@angular/forms'
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TareasComponent
+    TareasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
