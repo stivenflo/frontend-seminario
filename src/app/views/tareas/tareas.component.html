@@ -22,9 +22,99 @@
                 <td>{{t.tarea}}</td>
             
                 <td>{{t.limite}}</td>
+
+                <td class="btn btn-primary btn-sm" 
+                    data-toggle="modal"
+                    data-target="#EditModal"
+                    (click)="getDatosTareasForm(t)">Modificar
+                </td>
+
+                <td>
+                    <button class="btn btn-danger btn-sm"
+                            (click)="delete_tarea(t.titulo)">
+                      Eliminar
+                    </button>
+                </td>
             
               </tr>
         </tbody>
         
     </table>
+<!-- Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="text-info" id="tituloMpdalLabel">Modificar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Titulo:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.titulo"
+                    [ngModelOptions]="{standalone:true}">
+
+                    <label>Tarea:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.tarea"
+                    [ngModelOptions]="{standalone:true}">
+
+                    <label>Fecha limite:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.limite"
+                    [ngModelOptions]="{standalone:true}">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" (click)="update_tarea(tarea.titulo)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#InsertModal">Insertar</button>
+
+<!-- Modal -->
+<div class="modal fade" id="InsertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="text-info" id="tituloMpdalLabel">Agregar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label>Titulo:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.titulo"
+                    [ngModelOptions]="{standalone:true}">
+
+                    <label>Tarea:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.tarea"
+                    [ngModelOptions]="{standalone:true}">
+
+                    <label>Fecha limite:</label>
+                    <input type="text"
+                    class="form-control"
+                    [(ngModel)]="tarea.limite"
+                    [ngModelOptions]="{standalone:true}">
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" (click)="insert_tarea()">Guardar</button>
+            </div>
+        </div>
+    </div>
 </div>

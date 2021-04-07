@@ -9,6 +9,13 @@ import { AppService } from '../../app.services';
 
 export class TareasComponent{
     public lista_tareas: any[];
+
+    public tarea = {
+        titulo:"",
+        tarea:"",
+        limite:""
+    }
+
     constructor(public service:AppService){
         this.lista_tareas = [];
     }
@@ -29,4 +36,64 @@ export class TareasComponent{
             }
         )
     }
+
+    insert_tarea(){
+        var response;
+        this.service.insert_tarea(this.tarea).subscribe(
+            data=>response=data,
+            err => {
+                console.log("Error al consultar el servicio");
+            },
+            ()=>{
+                this.tarea ={
+                    titulo:"",
+                    tarea:"",
+                    limite:""
+                }
+                this.get_tarea();
+            }
+        )
+    }
+
+    getDatosTareasForm(t){
+        this.tarea = {
+            titulo:t.titulo,
+            tarea:t.tarea,
+            limite:t.limite
+        }
+    }
+
+    update_tarea(){
+        var response;
+        this.service.update_tarea(this.tarea).subscribe(
+            data=>response=data,
+            err => {
+                console.log("Error al consultar el servicio");
+            },
+            ()=>{
+                this.tarea ={
+                    titulo:"",
+                    tarea:"",
+                    limite:""
+                }
+                this.get_tarea();
+            }
+        )
+    }
+
+    delete_tarea(titulo){
+        var response;
+        var load={
+            titulo:titulo
+        }
+        this.service.delete_tarea(load).subscribe(
+            data=>response=data,
+            err => {
+                console.log("Error al consultar el servicio");
+            },
+            ()=>{
+                this.get_tarea();
+            }
+        )
+     }
 }

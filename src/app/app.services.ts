@@ -13,4 +13,17 @@ export class AppService {
     get_tarea():Observable<any>{
         return this.httpClient.get(this.endpoint+"/get_tarea", {responseType:'json'});
     }
+
+    insert_tarea(load):Observable<any>{
+        return this.httpClient.post(this.endpoint+"/insert_tarea", load, {responseType:'json'});
+    }
+
+    update_tarea(load):Observable<any>{
+        return this.httpClient.put(this.endpoint+"/update_tarea", load, {responseType:'json'})
+    }
+
+    delete_tarea(load):Observable<any>{
+        return this.httpClient.delete(this.endpoint+"/delete_vehiculo", {params:load,
+        responseType:'json'})
+    }
 }
