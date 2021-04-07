@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import { AppService } from '../../app.services';
 
 @Component({
-    selector: 'tareas',
+    selector: 'get_tarea',
     templateUrl: './tareas.component.html'
 }) 
 
@@ -14,7 +14,7 @@ export class TareasComponent{
     }
 
     ngOnInit(){
-        this.lista_tareas = [];
+        this.get_tarea();
     }
 
     get_tarea(){
